@@ -1,0 +1,221 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #111113;
+  color: #c4c4c8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+/* Scrollbar kustom untuk kesan profesional */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* DAW Sliders */
+.daw-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: #27272a;
+  outline: none;
+  margin: 0;
+}
+.daw-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 6px;
+  height: 14px;
+  border-radius: 2px;
+  background: #a1a1aa;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.daw-slider::-webkit-slider-thumb:hover {
+  background: #d4d4d8;
+}
+.daw-slider.vol-slider::-webkit-slider-thumb {
+  background: #3b82f6;
+}
+.daw-slider.pan-slider::-webkit-slider-thumb {
+  background: #10b981;
+}
+
+@keyframes pulseRed {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.pulse-anim {
+  animation: pulseRed 1.5s infinite;
+}
+
+.resize-handle-vertical {
+  height: 5px;
+  background: #27272a;
+  cursor: row-resize;
+  z-index: 50;
+  transition: background 0.1s;
+}
+.resize-handle-vertical:hover, .resize-handle-vertical:active {
+  background: #3b82f6;
+}
+
+.resize-handle-horizontal {
+  width: 5px;
+  background: #27272a;
+  cursor: col-resize;
+  z-index: 50;
+  transition: background 0.1s;
+}
+.resize-handle-horizontal:hover, .resize-handle-horizontal:active {
+  background: #3b82f6;
+}
+/* Minimalist Dark Theme for FlexLayout — subtle, symmetric, no aggressive blue */
+.flexlayout__layout {
+  --fl-color-background: #111113;
+  --fl-color-base: #18181b;
+
+  --fl-color-tab-selected: #c8c8cc;
+  --fl-color-tab-selected-background: transparent;
+  --fl-color-tab-unselected: #48484f;
+  --fl-color-tab-unselected-background: transparent;
+
+  --fl-color-tabset-background: #16161a;
+  --fl-color-tab-content: #111113;
+  --fl-color-tabset-divider-line: transparent;
+
+  --fl-color-splitter: #1e1e22;
+  --fl-color-splitter-hover: #333340;
+  --fl-color-splitter-drag: #3a3a48;
+
+  --fl-splitter-size: 3px;
+  --fl-font-size: 12px;
+  --fl-font-family: 'Segoe UI', sans-serif;
+
+  --fl-color-drag1: rgba(120, 120, 140, 0.45);
+  --fl-color-drag2: rgba(100, 100, 120, 0.2);
+  --fl-color-drag2-background: rgba(80, 80, 100, 0.1);
+}
+
+/* ── Tab buttons ── */
+.flexlayout__tab_button {
+  padding: 0 14px !important;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  font-size: 12px !important;
+  letter-spacing: 0.2px;
+  cursor: grab !important;
+  transition: color 0.1s;
+}
+
+/* Active tab — brighter text, single thin top border only */
+.flexlayout__tab_button--selected {
+  color: #c8c8cc !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-top: 1px solid #46464f !important;
+}
+
+/* Inactive tab */
+.flexlayout__tab_button--unselected {
+  color: #48484f !important;
+  font-weight: 400 !important;
+}
+
+/* Hover */
+.flexlayout__tab_button:hover {
+  color: #8a8a96 !important;
+  background: transparent !important;
+}
+
+/* ── Tabset header bar ── */
+.flexlayout__tabset_header {
+  background-color: #16161a !important;
+  border-bottom: 1px solid #1e1e24 !important;
+  padding: 0 !important;
+  height: 30px !important;
+}
+
+/* ── Tabset container ── */
+.flexlayout__tabset {
+  border: none !important;
+  box-shadow: none !important;
+  background-color: #111113 !important;
+}
+
+.flexlayout__tabset-selected {
+  background-image: none !important;
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+/* ── Close button — fade in on hover only ── */
+.flexlayout__tab_button_trailing {
+  opacity: 0 !important;
+  transition: opacity 0.1s !important;
+  color: #555560 !important;
+}
+.flexlayout__tab_button:hover .flexlayout__tab_button_trailing,
+.flexlayout__tab_button--selected .flexlayout__tab_button_trailing {
+  opacity: 1 !important;
+}
+
+/* ── Splitters ── */
+.flexlayout__splitter {
+  background: #1a1a1f !important;
+  transition: background 0.12s;
+}
+.flexlayout__splitter:hover,
+.flexlayout__splitter_drag {
+  background: #2a2a34 !important;
+}
+
+/* ── Drag ghost rect ── */
+.flexlayout__drag_rect {
+  background-color: rgba(70, 70, 90, 0.2) !important;
+  border: 1px solid rgba(110, 110, 140, 0.35) !important;
+  border-radius: 3px !important;
+  transition: top 0.08s ease-out, left 0.08s ease-out,
+              width 0.08s ease-out, height 0.08s ease-out;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* ── Drop outline rect ── */
+.flexlayout__outline_rect {
+  border: 2px solid rgba(100, 100, 130, 0.5) !important;
+  background-color: rgba(80, 80, 110, 0.08) !important;
+  border-radius: 3px !important;
+  box-shadow: none !important;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* ── Track header hover ── */
+.track-header {
+  transition: background-color 0.1s ease;
+}
+.track-header:hover {
+  background-color: #1c1c21 !important;
+}
